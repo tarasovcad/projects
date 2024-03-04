@@ -1,7 +1,11 @@
 // Base
-@import "./base/_reset.scss";
+@import "./base/vars";
+@import "./base/_reset";
 @import "./base/base";
 
 
 
 // Blocks
+@import "./blocks/nav";
+@import "./blocks/logo";
+@import "./blocks/navigation-list";

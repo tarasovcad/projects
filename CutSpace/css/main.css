@@ -104,6 +104,14 @@ html, body {
   margin-bottom: 1em;
 }
 
+.header__img img {
+  border-radius: 40px 40px 40px 0;
+}
+
+.header__form {
+  margin-top: 42px;
+}
+
 .form {
   background: #FFFF;
   box-shadow: 0px 17px 42px rgba(0, 0, 0, 0.12);
@@ -157,6 +165,17 @@ html, body {
 }
 .button:hover {
   background-color: #ef6709;
+}
+
+.clients {
+  padding-top: 100px;
+  padding-bottom: 90px;
+}
+
+.clients__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

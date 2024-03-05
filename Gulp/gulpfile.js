@@ -16,3 +16,8 @@ gulp.task('sass', function() {
     .pipe(sass())
     .pipe(gulp.dest('./dist/css/'))
 })
+
+gulp.task('copyImages', function () {
+    return gulp.src('./src/img/**/*') // All files
+    .pipe(gulp.dest('./dist/img/'))
+})

@@ -51,3 +51,10 @@ gulp.task('watch', function() {
     gulp.watch('./src/**/*.html', gulp.parallel('html'));
     gulp.watch('./src/img/**/*', gulp.parallel('images'))
 })
+
+
+gulp.task('default', gulp.series(
+    'clean', 
+    gulp.parallel('html', 'sass', 'images'),
+    gulp.parallel('server', 'watch')
+    ))

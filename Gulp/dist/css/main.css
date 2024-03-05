@@ -1,10 +1,12 @@
 .header {
   background-color: aqua;
   padding: 150px;
+  color: white;
 }
 
 .footer {
   background-color: chartreuse;
-  font-size: 36px;
+  font-size: 100px;
   color: red;
+  padding: 100px 0;
 }

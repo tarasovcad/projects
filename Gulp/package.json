@@ -18,8 +18,8 @@
     "gulp-babel": "^8.0.0"
   },
   "babel": {
-  "presets": [
-    "@babel/preset-env"
-  ]
- }
+		"presets": [
+			"@babel/preset-env"
+		]
+	}
 }

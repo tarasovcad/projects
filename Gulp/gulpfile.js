@@ -10,6 +10,9 @@ const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 
 
+const webpack = require('webpack-stream')
+
+
 
 gulp.task('clean', function(done) {
     if (fs.existsSync('./dist/')) {
@@ -19,8 +22,6 @@ gulp.task('clean', function(done) {
     }
     done();
 })
-
-
 const plumberNotify = (title) => {
     return {
         errorHandler: notify.onError({
@@ -31,9 +32,6 @@ const plumberNotify = (title) => {
     };
 }
 
-
-
-
 gulp.task('html', function () {
     return gulp.src('./src/*.html')
         .pipe(plumber(plumberNotify('HTML Error')))
@@ -43,9 +41,6 @@ gulp.task('html', function () {
         }))
         .pipe(gulp.dest('./dist'));
 })
-
-
-
 
 gulp.task('sass', function() {
     return gulp.src('./src/scss/*.scss')
@@ -72,6 +67,14 @@ gulp.task('files', function () {
     .pipe(gulp.dest('./dist/files/'))
 })
 
+gulp.task('js', function() {
+    return gulp.src('./src/js/*.js')
+    .pipe(plumber(plumberNotify('JavaScript Error')))
+    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(gulp.dest('./dist/js'));
+})
+
+
 
 gulp.task('server', function() {
     return gulp.src('./dist/')
@@ -88,10 +91,11 @@ gulp.task('watch', function() {
     gulp.watch('./src/img/**/*', gulp.parallel('images'))
     gulp.watch('./src/fonts/**/*', gulp.parallel('fonts'))
     gulp.watch('./src/files/**/*', gulp.parallel('files'))
+    gulp.watch('./src/js/**/*.js', gulp.parallel('js'))
 })
 
 gulp.task('default', gulp.series(
     'clean', 
-    gulp.parallel('html', 'sass', 'images', 'fonts', 'files'),
+    gulp.parallel('html', 'sass', 'images', 'fonts', 'files', 'js'),
     gulp.parallel('server', 'watch')
 ))

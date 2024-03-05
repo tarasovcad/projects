@@ -20,18 +20,23 @@ gulp.task('clean', function(done) {
     done();
 })
 
-const plumberHtmlConfig = {
-    errorHandler: notify.onError({
-        title: 'HTML',
-        messages: 'Error <%= error.message %>',
-        sound: false
-    })
+
+const plumberNotify = (title) => {
+    return {
+        errorHandler: notify.onError({
+            title: title,
+            messages: 'Error <%= error.message %>',
+            sound: false
+        }),
+    };
 }
+
+
 
 
 gulp.task('html', function () {
     return gulp.src('./src/*.html')
-        .pipe(plumber(plumberHtmlConfig))
+        .pipe(plumber(plumberNotify('HTML Error')))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
@@ -40,18 +45,11 @@ gulp.task('html', function () {
 })
 
 
-const plumberSassConfig = {
-    errorHandler: notify.onError({
-        title: 'Styles',
-        messages: 'Error <%= error.message %>',
-        sound: false
-    })
-}
 
 
 gulp.task('sass', function() {
     return gulp.src('./src/scss/*.scss')
-    .pipe(plumber(plumberSassConfig))
+    .pipe(plumber(plumberNotify('SASS Error')))
     .pipe(sourseMaps.init())
     .pipe(sass())
     .pipe(groupMedia())

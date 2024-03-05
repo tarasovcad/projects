@@ -5,7 +5,9 @@ const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
 const fs = require('fs');
 const sourseMaps = require('gulp-sourcemaps')
-const groupMedia = require('gulp-group-css-media-queries')
+const groupMedia = require('gulp-group-css-media-queries') 
+const plumber = require('gulp-plumber')
+const notify = require('gulp-notify')
 
 
 
@@ -18,9 +20,18 @@ gulp.task('clean', function(done) {
     done();
 })
 
+const plumberHtmlConfig = {
+    errorHandler: notify.onError({
+        title: 'HTML',
+        messages: 'Error <%= error.message %>',
+        sound: false
+    })
+}
+
 
 gulp.task('html', function () {
     return gulp.src('./src/*.html')
+        .pipe(plumber(plumberHtmlConfig))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
@@ -28,8 +39,19 @@ gulp.task('html', function () {
         .pipe(gulp.dest('./dist'));
 })
 
+
+const plumberSassConfig = {
+    errorHandler: notify.onError({
+        title: 'Styles',
+        messages: 'Error <%= error.message %>',
+        sound: false
+    })
+}
+
+
 gulp.task('sass', function() {
     return gulp.src('./src/scss/*.scss')
+    .pipe(plumber(plumberSassConfig))
     .pipe(sourseMaps.init())
     .pipe(sass())
     .pipe(groupMedia())

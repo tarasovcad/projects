@@ -11,6 +11,7 @@ const notify = require('gulp-notify')
 
 
 const webpack = require('webpack-stream')
+const babel = require('gulp-babel')
 
 
 
@@ -70,6 +71,7 @@ gulp.task('files', function () {
 gulp.task('js', function() {
     return gulp.src('./src/js/*.js')
     .pipe(plumber(plumberNotify('JavaScript Error')))
+    .pipe(babel())
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest('./dist/js'));
 })

@@ -3,5 +3,11 @@
     font-size: 100px;
     color: red;
     padding: 100px 0;
+
+    @media (max-width: 1200px) {
+        font-size: 32px;
+    }
+
     
 }
+

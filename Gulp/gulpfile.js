@@ -5,6 +5,7 @@ const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
 const fs = require('fs');
 const sourseMaps = require('gulp-sourcemaps')
+const groupMedia = require('gulp-group-css-media-queries')
 
 
 
@@ -31,6 +32,7 @@ gulp.task('sass', function() {
     return gulp.src('./src/scss/*.scss')
     .pipe(sourseMaps.init())
     .pipe(sass())
+    .pipe(groupMedia())
     .pipe(sourseMaps.write())
     .pipe(gulp.dest('./dist/css/'))
 })
@@ -55,9 +57,8 @@ gulp.task('watch', function() {
     gulp.watch('./src/img/**/*', gulp.parallel('images'))
 })
 
-
 gulp.task('default', gulp.series(
     'clean', 
     gulp.parallel('html', 'sass', 'images'),
     gulp.parallel('server', 'watch')
-    ))
+))

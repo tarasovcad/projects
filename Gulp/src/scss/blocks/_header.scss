@@ -2,4 +2,8 @@
     background-color: aqua;
     padding: 150px;
     color: white;
+
+    @media (max-width: 1200px) {
+        font-size: 32px;
+    }
 }

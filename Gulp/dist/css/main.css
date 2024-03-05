@@ -1,0 +1,10 @@
+.header {
+  background-color: aqua;
+  padding: 150px;
+}
+
+.footer {
+  background-color: chartreuse;
+  font-size: 36px;
+  color: red;
+}

@@ -16,6 +16,9 @@ const babel = require('gulp-babel')
 const imagemin = require('gulp-imagemin')
 
 
+const changed = require('gulp-changed')
+
+
 gulp.task('clean', function(done) {
     if (fs.existsSync('./dist/')) {
         return gulp.src('./dist/', {read: false}) // much faster
@@ -56,6 +59,7 @@ gulp.task('sass', function() {
 
 gulp.task('images', function () {
     return gulp.src('./src/img/**/*') // All files
+    .pipe(changed('./dist/img/'))
     .pipe(imagemin({ verbose: true }))
     .pipe(gulp.dest('./dist/img/'))
 })

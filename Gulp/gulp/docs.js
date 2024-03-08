@@ -1,11 +1,17 @@
 const gulp = require('gulp'); 
 const fileInclude = require('gulp-file-include');
+
+// SASS
 const sass = require('gulp-sass')(require('sass'))
 const sassGlob = require('gulp-sass-glob');
+const autoprefixer = require ('gulp-autoprefixer')
+
+
 const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
 const fs = require('fs');
-const sourseMaps = require('gulp-sourcemaps') 
+const sourseMaps = require('gulp-sourcemaps')
+const groupMedia = require('gulp-group-css-media-queries') 
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 
@@ -19,9 +25,9 @@ const imagemin = require('gulp-imagemin')
 const changed = require('gulp-changed')
 
 
-gulp.task('clean::dev', function(done) {
-    if (fs.existsSync('./build/')) {
-        return gulp.src('./build/', {read: false}) // much faster
+gulp.task('clean::docs', function(done) {
+    if (fs.existsSync('./docs/')) {
+        return gulp.src('./docs/', {read: false}) // much faster
         .pipe(clean({force: true})) //  with force option it will delete everything!
 
     }
@@ -37,61 +43,63 @@ const plumberNotify = (title) => {
     };
 }
 
-gulp.task('html::dev', function () {
+gulp.task('html::docs', function () {
     return gulp
         .src(['./src/html/**/*.html', '!./src/html/blocks/*.html']) // Dont compile blocks to html
-        .pipe(changed('./build/'))
+        .pipe(changed('./docs/'))
         .pipe(plumber(plumberNotify('HTML Error')))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('./build/'));
+        .pipe(gulp.dest('./docs/'));
 })
 
-gulp.task('sass::dev', function() {
+gulp.task('sass::docs', function() {
     return gulp.src('./src/scss/*.scss')
-    .pipe(changed('./build/css/'))
-    .pipe(plumber(plumberNotify('SASS Error')))
+    .pipe(changed('./docs/css/'))
+    .pipe(plumber(plumberNotify('SCSS Error')))
     .pipe(sourseMaps.init())
+    .pipe(autoprefixer())
     .pipe(sassGlob())
+    .pipe(groupMedia())
     .pipe(sass())
     .pipe(sourseMaps.write())
-    .pipe(gulp.dest('./build/css/'))
+    .pipe(gulp.dest('./docs/css/'))
 })
 
-gulp.task('images::dev', function () {
+gulp.task('images::docs', function () {
     return gulp.src('./src/img/**/*') // All files
-    .pipe(changed('./build/img/'))
-    // .pipe(imagemin({ verbose: true }))
-    .pipe(gulp.dest('./build/img/'))
+    .pipe(changed('./docs/img/'))
+    .pipe(imagemin({ verbose: true }))
+    .pipe(gulp.dest('./docs/img/'))
 })
 
-gulp.task('fonts::dev', function () {
+gulp.task('fonts::docs', function () {
     return gulp.src('./src/fonts/**/*') // All files
-    .pipe(changed('./build/fonts/'))
-    .pipe(gulp.dest('./build/fonts/'))
+    .pipe(changed('./docs/fonts/'))
+    .pipe(gulp.dest('./docs/fonts/'))
 })
 
-gulp.task('files::dev', function () {
+gulp.task('files::docs', function () {
     return gulp.src('./src/files/**/*') // All files
-    .pipe(changed('./build/files/'))
-    .pipe(gulp.dest('./build/files/'))
+    .pipe(changed('./docs/files/'))
+    .pipe(gulp.dest('./docs/files/'))
 })
 
-gulp.task('js::dev', function() {
+gulp.task('js::docs', function() {
     return gulp.src('./src/js/*.js')
-    .pipe(changed('./build/js/'))
+    .pipe(changed('./docs/js/'))
     .pipe(plumber(plumberNotify('JS Error')))
-    // .pipe(babel())
+    .pipe(babel())
     .pipe(webpack(require('./../webpack.config.js')))
-    .pipe(gulp.dest('./build/js'));
+    .pipe(gulp.dest('./docs/js'));
 })
 
 
 
-gulp.task('server::dev', function() {
-    return gulp.src('./build/')
+gulp.task('server::docs', function() {
+    return gulp.src('./docs/')
     .pipe(server({
         livereload: true,
         // directoryListing: true,
@@ -99,12 +107,4 @@ gulp.task('server::dev', function() {
     }))
 })
 
-gulp.task('watch::dev', function() {
-    gulp.watch('./src/scss/**/*.scss', gulp.parallel('sass::dev'));
-    gulp.watch('./src/**/*.html', gulp.parallel('html::dev'));
-    gulp.watch('./src/img/**/*', gulp.parallel('images::dev'))
-    gulp.watch('./src/fonts/**/*', gulp.parallel('fonts::dev'))
-    gulp.watch('./src/files/**/*', gulp.parallel('files::dev'))
-    gulp.watch('./src/js/**/*.js', gulp.parallel('js::dev'))
-})
 

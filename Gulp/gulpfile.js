@@ -38,14 +38,15 @@ const plumberNotify = (title) => {
 }
 
 gulp.task('html', function () {
-    return gulp.src('./src/*.html')
-        .pipe(changed('./dist'))
+    return gulp
+        .src('./src/html/**/*.html')
+        .pipe(changed('./dist/'))
         .pipe(plumber(plumberNotify('HTML Error')))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/'));
 })
 
 gulp.task('sass', function() {

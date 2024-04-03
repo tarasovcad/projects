@@ -36,6 +36,20 @@
         @extend %title-font;
         color: rgba(54, 56, 56, 0.9);
         line-height: 22px;
+        &--active {
+            padding-bottom: 4px;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 2px;
+                background-color: rgba($title, .7);
+                border-radius: 1px;
+            }
+        }
     }
 }
 

@@ -247,6 +247,26 @@
 
 }
 
+.breadcrumbs {
+    background: rgba(#DFDFDF, .5);
+    padding: 13px 14px;
+    &__item::after {
+        content: '/';
+        margin-left:-4px;
+        margin-right: 4px;
+    }
+    &__item:last-child::after {
+        display: none;
+    }
+    &__list {
+        display: flex;
+    }
+    &__link {
+        font-size: 14px;
+        color: $default;
+    }
+}
+
 
 .top {
     &__inner {

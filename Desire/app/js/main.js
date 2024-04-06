@@ -18,7 +18,7 @@ $(function () {
             filter: ".living",
         }, 
         animation: {
-            // enable: false,
+            // enable: false, 
             effects: 'fade translateZ(-100px)'
         
         },

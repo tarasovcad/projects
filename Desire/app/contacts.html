@@ -22,7 +22,7 @@
               <li class="menu__list-item">
                 <a class="menu__list-link" href="#">About</a>
               </li>
-              <li class="menu__list-item">
+              <li class="menu__list-item ">
                 <a class="menu__list-link" href="#">Gallery</a>
               </li>
             </ul>
@@ -36,7 +36,7 @@
                 <a class="menu__list-link" href="#">Blog</a>
               </li>
               <li class="menu__list-item">
-                <a class="menu__list-link" href="#">Contact</a>
+                <a class="menu__list-link menu__list-link--activef" href="#">Contact</a>
               </li>
             </ul>
           </nav>
@@ -60,7 +60,87 @@
       </div>
     </header>
 
-    <main class="main"></main>
+    <main class="main">
+
+      <div class="breadcrumbs">
+        <div class="container">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Gallery</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10401.431558738792!2d-78.14927706046063!3d39.18917466582759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b5efb7dcb92fe9%3A0x4ec547c3ee794b43!2s725%20Green%20St%2C%20Winchester%2C%20VA%2022601%2C%20USA!5e0!3m2!1sen!2sca!4v1712529314243!5m2!1sen!2sca" 
+        width="100%" height="578" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <section class="contact">
+        <div class="container">
+          <h3 class="contact__title">Contact Us</h3>
+          <ul class="contact__social">
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="" alt="">
+              </a>
+            </li>
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="images/facebook.svg" alt="Facebook">
+              </a>
+            </li>
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="images/instagram.svg" alt="instagram">
+              </a>
+            </li>
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="images/pinterest.svg" alt="pinterest">
+              </a>
+            </li>
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="images/whatsapp.svg" alt="whatsapp">
+              </a>
+            </li>
+            <li class="contact__social-item">
+              <a class="contact__social-link" href="#">
+                <img class="contact__social-link" src="images/youtube.svg" alt="youtube">
+              </a>
+            </li>
+          </ul>
+          <div class="contact__box">
+            <p class="contact__text">
+              Vexillologist vape microdosing freegan pork belly deep v direct trade cray single-origin coffee street art. Viral shaman mustache master cleanse, pour-over affogato poutine copper mug marfa fanny pack normcore. Lo-fi pop-up banjo portland, echo park hammock
+            </p>
+            <a class="contact__phone" href="tel:+14158297934">(415) 829-7934</a>
+            <div class="contact__st">725 Green St</div>
+            <div class="contact__city">San Francisco, California(CA), 94133</div>
+            <a class="info-email" href="mailto:ouremailaddress@email.com">
+              ouremailaddress@email.com
+            </a>
+          </div>
+          
+          <form class="contact__form">
+            <input class="contact__form-input" placeholder="Your name" type="text"/>
+            <input class="contact__form-input" placeholder="Your e-mail" type="text"/>
+            <textarea class="contact__form-area" placeholder="Your message"></textarea>
+            <button class="form-button" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+  
+  
+
+
+    </main>
+
     <footer class="footer">
       <div class="footer__content">
         <div class="container">
@@ -70,7 +150,7 @@
               <p class="footer__info-text">
                 Keffiyeh poutine etsy, paleo cray put a bird on it microdosing schlitz you probably occupy
               </p>
-              <a class="footer__info-email" href="mailto:ouremailaddress@email.com">
+              <a class="info-email" href="mailto:ouremailaddress@email.com">
                 ouremailaddress@email.com
               </a>
               <form class="footer__form">

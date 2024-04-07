@@ -668,5 +668,84 @@
         cursor: pointer;
     }
 }
-.container {
+
+
+.inspiration {
+    padding-top: 100px;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-image: url(../images/incpiration.jpg.jpg);
+        height: 362px;
+        z-index: -1;
+    }
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        margin-right: 78px;
+        margin-left: -230px;
+    }
+    &__content {
+        max-width: 825px;
+    }
+    &__inspiration__item-text {
+
+    }
+    &__title {
+        font-size: 36px;
+        line-height: 60px;
+        color: $title;
+        @extend %title-font;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #6D7278;
+            width: 200px;
+            height: 1px;
+        }
+    }
+    &__text {
+        margin-bottom: 30px;
+    }
+    &__list {}
+
+    &__item {
+        color: $title;
+        line-height: 23px;
+        margin-bottom: 33px;
+        @extend %title-font;
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #fff;
+            border-radius: 4px;
+        }
+        &-text {
+            
+        }
+    }
+    &__num {}
+    &__line {
+        height: 2px;
+        border-radius: 4px;
+        background-color: $title;
+        margin-top: -2px;
+    }
 }
+
+
+
+

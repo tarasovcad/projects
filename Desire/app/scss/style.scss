@@ -664,7 +664,9 @@
     }
 
     &__popup-play {}
-    &__popup-imgbtn {}
+    &__popup-imgbtn {
+        cursor: pointer;
+    }
 }
 .container {
 }

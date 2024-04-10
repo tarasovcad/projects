@@ -892,7 +892,12 @@
     &__tags {
         margin-bottom: 50px;
     }
-    &__tags-title {}
+    &__tags-title {
+        margin-bottom: 17px;
+        color: $title;
+        @extend %title-font;
+        line-height: 23px;
+    }
     &__tags-link {
         color: #8F8D8D;
         font-weight: 600;

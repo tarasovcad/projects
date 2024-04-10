@@ -859,3 +859,109 @@
         opacity: 0;
     }
 }
+
+
+
+.blog {
+    padding: 60px 0 100px;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__items {}
+
+
+    &__category {
+        margin-bottom: 36px;
+    }
+    &__category-title {
+        margin-bottom: 14px;
+        color: $title;
+        @extend %title-font;
+        line-height: 23px;
+    }
+    &__category-list {
+        
+    }
+    &__category-item {
+        margin-bottom: 12px;
+    }
+    &__category-link {
+        color: inherit;
+    }
+    &__tags {
+        margin-bottom: 50px;
+    }
+    &__tags-title {}
+    &__tags-link {
+        color: #8F8D8D;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 0 16px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        border: 1px solid rgba(#454647, .5);
+        border-radius: 14px;
+    }
+    &__social {
+        display: flex;
+    }
+    &__social-item {
+        margin-right: 20px;
+    }
+    &__social-link {}
+}
+
+.aside {
+    width: 350px;
+    margin-left: 30px;
+    &__search {
+        position: relative;
+        margin-bottom: 40px;
+    }
+    &__search-input {
+        padding: 6px 50px 6px 18px;
+        border: 1px solid rgba($title, .7);
+        border-radius: 20px;
+        display: block;
+        width: 100%;
+        &::placeholder {
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            line-height: 27px;
+            font-weight: 400;
+            color: #A1A1A1;
+        }
+    }
+    &__search-btn {
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: 11px;
+        right: 19px;
+        cursor: pointer;
+    }
+    
+}
+.recent-posts {
+    margin-bottom: 40px;
+    &__title {
+        margin-bottom: 24px;
+        color: $title;
+        @extend %title-font;
+        line-height: 23px;
+    }
+    &__list {}
+    &__item {
+        margin-bottom: 11px;
+    }
+    &__item-title {
+        display: block;
+        color: inherit;
+    }
+    &__date, &__author {
+        color: #A1A1A1;
+        font-size: 14px;
+    }
+}

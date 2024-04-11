@@ -1056,10 +1056,29 @@
     }
 }
 .pagination {
-    &__arrow {}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__arrow {
+        margin: 0 6px;
+    }
     &__arrow-icon {}
-    &__list {}
-    &__list-item {}
-    &__list-num {}
+    &__list {
+        display: flex;
+    }
+    &__list-item {
+        margin: 0 6px;
+    }
+    &__list-num {
+        color: #707070;
+        font-size: 14px;
+        font-weight: 600;
+    }
     &__list-num--active {}
+    &__arrow--disabled {
+        display: none;
+    }
+    &__list-num--active {
+        color: $title;
+    }
 }

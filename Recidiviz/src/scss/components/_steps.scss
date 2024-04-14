@@ -1,0 +1,71 @@
+.steps {
+  padding: 120px 0;
+  background-color: var(--light-color);
+  &__title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 1.2px;
+    color: #003331;
+    max-width: 720px;
+    margin-bottom: 57px;
+
+  }
+  &__list {
+    counter-reset: steps;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 758px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::before {
+      counter-increment: steps; /* Increment the value of section counter by 1 */
+      content: counter(steps); /* Display counter value in default style (decimal) */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      width: 48px;
+      height: 48px;
+      background: #014c48;
+      font-size: 16px;
+      line-height: 30px;
+      color: var(--light-color);
+      margin-bottom: 28px;
+    }
+    &--line {
+      position: relative;
+      flex-grow: 1;
+      &::before {
+        display: none;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        background: rgba(53, 83, 98, 0.2);
+        height: 1px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        margin-top: -35px;
+      }
+    }
+  }
+  &__descr {
+    max-width: 142px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(53, 83, 98, 0.8);
+  }
+}
+

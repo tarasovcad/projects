@@ -1,7 +1,78 @@
 .hero {
+  display: flex;
+  flex-direction: column;
+  padding-top: 190px;
+  padding-bottom: 40px;
   min-height: 776px;
   background-image: url(../img/hero-img.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
+  color: var(--light-color);
+  &__content {
+    grid-column: 6 span;
+  }
+  &__title {
+    margin: 0;
+    margin-bottom: 29px;
+    font-size: 38px;
+    line-height: 44px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    font-family: var(--second-family);
+  }
+  &__descr {
+    margin: 0;
+    margin-bottom: 29px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+
+  }
+  &__bottom {}
+  &__subtitle {
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+  }
+  &__list {}
+  &__item {
+    grid-column: 2 span;
+  }
+  &__link {
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: inherit;
+    padding-top: 17px;
+    display: block;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    &:focus {
+      outline: none;
+    }
+      @include hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      &:active{
+        border-color: var(--active-color);
+        color: var(--active-color);
+      }
+
+  }
 }
+.hero__link.focus-visible {
+  border-color: var(--active-color);
+}
+
+
+.hero__bottom-container {
+  margin-top: auto;
+  width: 100%;
+}
+
+
+

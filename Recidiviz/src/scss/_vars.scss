@@ -3,7 +3,7 @@
 :root {
   // base
   --font-family: "PublicSans", sans-serif;
-  --second-family: "LibreBaskerville", sans-serif;
+  --second-family: "LibreBaskervilleRegular", sans-serif;
   --content-width: 1152px;
   --container-offset: 15px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
@@ -19,3 +19,5 @@
   --accent-color: #00A1FF;
   --active-color: #E00E00;
 }
+
+

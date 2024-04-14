@@ -4,10 +4,18 @@
   // base
   --font-family: "PublicSans", sans-serif;
   --second-family: "LibreBaskerville", sans-serif;
-  --content-width: 1170px;
+  --content-width: 1152px;
   --container-offset: 15px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
+  --offset: 32px;
+
+  //sizes
+  --main-size: 13px;
+  --second-size: 15px;
+
   // colors
   --light-color: #fff;
+  --accent-color: #00A1FF;
+  --active-color: #E00E00;
 }

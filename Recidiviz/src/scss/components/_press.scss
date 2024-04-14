@@ -1,0 +1,102 @@
+.press {
+  padding-top: 88px;
+  padding-bottom: 88px;
+  background-color: var(--light-color);
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 33px;
+  }
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 38px;
+    letter-spacing: 0.04em;
+    color: var(--dark-color);
+  }
+  &__link {
+    color: #003331;
+    border: 1px solid rgba(53, 83, 98, 0.2);
+    border-radius: 80px;
+
+  }
+  &__list {
+    row-gap: var(--offset);
+  }
+  &__item {
+    grid-column: 4 span;
+  }
+}
+.press-card {
+  padding-top: 16px;
+  position: relative;
+  min-height: 145px;
+  border-top: 1px solid rgba(53, 83, 98, 0.3);
+  &__top {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 11px;
+  }
+  &__author {
+    margin: -18px 0;
+    padding: 18px 0;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--dark-color);
+    padding-left: 32px;
+    background-position: left top 15px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    &--ted {
+      background-image: url("../img/approach-icon-6.png");
+    }
+    &--correctional {
+      background-image: url("../img/press-1.png");
+    }
+    &--department {
+      background-image: url("../img/press-2.png");
+    }
+    &--nyc {
+      background-image: url(../img/approach-icon-1.png);
+    }
+    &--corrections1 {
+      background-image: url("../img/press-4.png");
+    }
+    &--right {
+      background-image: url("../img/press-5.png");
+    }
+
+  }
+  &__date {
+    margin: 0;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--dark-color);
+  }
+  &__title {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 25px;
+    color: #00413e;
+  }
+  &__link {
+    color: inherit;
+    &::after {
+      content: "";
+      inset: 0;
+    }
+  }
+}
+
+
+

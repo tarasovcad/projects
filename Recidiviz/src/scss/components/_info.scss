@@ -26,8 +26,8 @@
   }
   &__content {
     flex-grow: 1;
-    border-left: 1px solid #003331;
-    border-right: 1px solid #003331;
+    border-left: 1px solid var(--dark-color);
+    border-right: 1px solid var(--dark-color);
     padding: 0 82px;
     height: 100%;
     display: flex;

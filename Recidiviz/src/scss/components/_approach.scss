@@ -1,0 +1,92 @@
+.approach {
+  &__top {
+    padding: 80px;
+    background: #f7f8f8;
+  }
+  &__bottom {
+    background-color: var(--light-color);
+  }
+  &__left {
+    grid-column: 5 span;
+    padding-top: 33px;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    color: #003331;
+    margin-bottom: 13px;
+  }
+  &__descr {
+    margin: 0;
+    margin-bottom: 37px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--text-color);
+  }
+  &__btn {
+    border: 1px solid rgba(53, 83, 98, 0.2);
+    color: #00413e;
+    padding: 16px 34px;
+    background: none;
+  }
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 8px;
+    grid-column: 7 / 6 span;
+  }
+  &__link {
+    border-top: 1px solid rgba(53, 83, 98, 0.3);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--text-color);
+    padding-top: 17px;
+    padding-left: 32px;
+    display: block;
+    background-position: left top 15px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    &:focus {
+      outline: none;
+    }
+      @include hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      &:active{
+        border-color: var(--active-color);
+        color: var(--active-color);
+      }
+    }
+  &__item {
+    grid-column: 2 span;
+  }
+  &__link--ted {
+    background-image: url(../img/approach-icon-6.png);
+  }
+  &__link--nyt {
+    background-image: url(../img/approach-icon-1.png);
+  }
+  &__link--scoop {
+    background-image: url(../img/approach-icon-2.png);
+  }
+  &__link--press {
+    background-image: url(../img/approach-icon-3.png);
+  }
+  &__link--time {
+    background-image: url(../img/approach-icon-4.png);
+  }
+  &__link--freethink {
+    background-image: url(../img/approach-icon-5.png);
+  }
+}
+
+.approach__link.focus-visible {
+  border-color: var(--active-color);
+}

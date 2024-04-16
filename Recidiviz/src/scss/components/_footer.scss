@@ -41,6 +41,18 @@
     font-size: 15px;
     line-height: 30px;
     color: #edeceb;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;;
+    &:focus {
+      outline: none;
+    }
+      @include hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      &:active{
+        border-color: var(--active-color);
+        color: var(--active-color);
+      }
   }
   &__bottom {
     background-color: #000F0F;
@@ -68,7 +80,19 @@
     font-size: 9px;
     line-height: 10px;
     color: #e5ecec;
-  }f
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;;
+    &:focus {
+      outline: none;
+    }
+      @include hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      &:active{
+        border-color: var(--active-color);
+        color: var(--active-color);
+      }
+  }
   &__bottom-text {
     font-weight: 400;
     font-size: 9px;
@@ -99,3 +123,9 @@
   &__footer {}
 }
 
+
+
+
+.approach__link.focus-visible {
+  border-color: var(--active-color);
+}

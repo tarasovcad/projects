@@ -91,12 +91,28 @@
   }
   &__link {
     color: inherit;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;;
     &::after {
       content: "";
       inset: 0;
     }
+    &:focus {
+      outline: none;
+    }
+      @include hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      &:active{
+        border-color: var(--active-color);
+        color: var(--active-color);
+      }
   }
 }
 
+
+.press-card_link.focus-visible {
+  border-color: var(--active-color);
+}
 
 
